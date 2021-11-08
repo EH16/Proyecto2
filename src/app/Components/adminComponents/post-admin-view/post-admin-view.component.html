@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Ublog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="/admin"><i class="fas fa-home"></i>Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" routerLink="/admin/users"><i class="fa-solid fa-atom"></i>
+                        Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/admin/posts"><i
+                            class="fa-solid fa-circle-plus"></i> Publicaciones</a>
+                </li>
+
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-success" type="submit"> Cerrar Sesion</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <div class="container">
+        <h1>Publicacion de {{owner}} </h1>
+
+        <div class="text-right" style="text-align: right;">
+            <p>Tiene un total de: {{like}} likes</p>
+            <button class="btn btn-outline-info" routerLink="/admin/posts">Regresar</button>
+        </div>
+        <div class="row">
+            <div class="col-md-6" *ngIf="esImagen">
+                
+                    <img src="{{response[0].url}}" >
+            </div>
+            <div class="embed-responsive embed-responsive-16by9" *ngIf="esVideo">
+                    <iframe [src]="response[0].url | sanitizador">
+                    </iframe>
+            </div>
+
+
+            
+        </div>
+        <br>
+    </div>
+</body>

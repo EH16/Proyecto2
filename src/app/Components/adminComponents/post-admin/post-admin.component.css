@@ -1,0 +1,5 @@
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+

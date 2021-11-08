@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+       <a class="navbar-brand">Ublog</a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLink="/admin"><i
+                      class="fas fa-home" ></i>Inicio</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link " aria-current="page" routerLink="/admin/users" ><i class="fa-solid fa-atom"></i> Usuarios</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/admin/posts" ><i class="fa-solid fa-circle-plus"></i> Publicaciones</a>
+             </li>
+             
+          </ul>
+          <form class="d-flex">
+             <button class="btn btn-outline-success" type="submit" > Cerrar Sesion</button>
+          </form>
+       </div>
+    </div>
+ </nav>
+
+ <div class="container">
+    <div class="  text-center">
+        <p></p>
+        <h1>Modificar Post</h1>
+    </div>
+    <div class="text-right" style="text-align: right;">
+        <button class="btn btn-outline-info" (click)="botonRegresar()"> Regresar </button>
+      </div>
+    <br><br>
+    <div class="alert alert-success text-center col-md-4 mx-auto" role="alert" *ngIf="newpostSucces">
+        {{ mensajeMostrar}}
+     </div>
+    <div id="error" class="alert alert-danger text-center col-md-4 mx-auto" *ngIf="error">
+        <p>{{mensajeMostrar}}</p>
+    </div>
+    <div class="row">
+        <div class="form">
+            <form action="" method="post" name="nuevaPublicacion">
+                <div class=" text-left form-group ">
+                    <label for="type" class="text-info">Ingrese el tipo: Imagen o Video</label><br>
+                    <input type="text" name="type" class="form-control" value={{type}}
+                    [(ngModel)]="publicacion.type"   >
+                    <br><br>
+                </div>
+                <div class=" text-center form-group">
+                    <label for="text" class="text-info">Direccion URL</label><br>
+                    <input type="url" name="url" class="form-control" value={{url}}
+                    [(ngModel)]="publicacion.url"  >
+                    <br><br>
+                </div>
+                <div class=" text-center form-group">
+                    <label for="text" class="text-info">Categoria</label><br>
+                    <input type="text" name="category" class="form-control" value="{{category}}"
+                        [(ngModel)]="publicacion.category"  >
+                </div>
+                <br><br>
+                <div class="text-center">
+                    <button class="btn btn-outline-primary" type="submit" (click)="modificarPublicacion()">Publicar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

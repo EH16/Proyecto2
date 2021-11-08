@@ -1,0 +1,86 @@
+<body>
+    <!-- As a heading -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Ublog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" routerLink="/inicio"><i
+                                class="fas fa-home"></i>Home</a>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+            </div>
+        </div>
+    </nav>
+    <div id="login">
+
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Iniciar Sesión</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Usuario:</label><br>
+                                <input type="text" name="usuario" class="form-control" placeholder="Ingrese su usuario"
+                                    [(ngModel)]="usuarioLogin.usuario">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Contraseña:</label><br>
+                                <input type="password" name="password" class="form-control"
+                                    placeholder="Ingrese su contraseña" [(ngModel)]="usuarioLogin.password">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit"
+                                    (click)="iniciarSesion()">
+                            </div>
+                            <br>
+                            <div id="Regristro" class="text-right">
+                                <a class="nav-link" routerLink="/registro">Registrarme</a>
+                            </div>
+                            <div id="error" class="alert alert-danger text-center" *ngIf="errorSesion">
+                                <p>{{ resp }}</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="footer">
+        <div class="container">
+            <footer class="py-3">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item" id="color"><a href="#" class="nav-link px-2 text-muted">Misión</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Visión</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Acerca de</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contacto</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Informacion del desarrollador</a>
+                    </li>
+                </ul>
+                <p class="text-center text-muted">Ublog</p>
+            </footer>
+        </div>
+    </section>
+</body>
+<!-- <form action="" method="post">
+    <Si es con un metodo post  -->
+<!-- <form action="/add" method="post"></form>     -->
+<!-- <input type="text" name="user" [(ngModel)]="usuarioLogin.usuario" placeholder="Nombre Completo">
+    <input type="text" name="password" [(ngModel)]="usuarioLogin.password" placeholder="password">
+    
+    <button type="submit" (click)="iniciarSesion()">
+        Save
+    </button>
+</form> -->

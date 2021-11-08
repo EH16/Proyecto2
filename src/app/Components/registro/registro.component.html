@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <div class="container-fluid">
+      <a class="navbar-brand">Ublog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+               <a class="nav-link active" aria-current="page" routerLink="/inicio"><i class="fas fa-home"></i>Home</a>
+            </li>
+         </ul>
+         <!-- <form class="d-flex">
+     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+     <button class="btn btn-outline-success" type="submit">Search</button>
+   </form> -->
+      </div>
+   </div>
+</nav>
+<div class="container">
+   <div class="col-md-6 mx-auto text-center">
+      <div class="header-title">
+         <h1 class="wv-heading--title">
+            Crear Cuenta gratis
+         </h1>
+      </div>
+   </div>
+   <div class="alert alert-success text-center col-md-4 mx-auto" role="alert" *ngIf="loginSucces">
+      {{ mensajeMostrar}}
+   </div>
+   <div id="error" class="alert alert-danger text-center col-md-4 mx-auto" *ngIf="errorDatos">
+      <p>{{mensajeMostrar}}</p>
+   </div>
+   <div class="row">
+      <div class="col-md-4 mx-auto">
+         <div class="myform form ">
+            <form action="" method="post" name="login">
+               <div class="form-group">
+                  <input type="text" name="name" class="form-control my-input" placeholder="Nombre"
+                     [(ngModel)]="nuevoUsuario.name">
+               </div>
+               <div class="form-group">
+                  <input type="text" name="gender" class="form-control my-input" placeholder="Genero"
+                     [(ngModel)]="nuevoUsuario.gender">
+               </div>
+               <div class="form-group">
+                  <input type="text" name="username" class="form-control my-input" placeholder="Nombre de usuario"
+                     [(ngModel)]="nuevoUsuario.username">
+               </div>
+               <div class="form-group">
+                  <input type="email" name="email" class="form-control my-input" placeholder="Correo"
+                     [(ngModel)]="nuevoUsuario.email">
+               </div>
+               <div class="form-group">
+                  <input type="password" name="password" class="form-control my-input" placeholder="Contraseña"
+                     [(ngModel)]="nuevoUsuario.password" required minlength="8">
+               </div>
+               <div class="text-center ">
+                  <button type="submit" class=" btn btn-block send-button tx-tfm" (click)="registrarUsuario()">Crear
+                     Cuenta Gratis</button>
+               </div>
+               <div class="text-center ">
+                  <div class="login-or">
+                     <hr class="hr-or">
+                     <a>o inicia sesion</a>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <a class="btn btn-block g-button" href="/inicio">
+                     <i class="fa-solid fa-house-chimney-heart"></i> Ingresa a tu cuenta
+                  </a>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>

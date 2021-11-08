@@ -1,0 +1,87 @@
+<script src="https://kit.fontawesome.com/9396e1c35d.js" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Ublog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="/admin"><i class="fas fa-home"></i>Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/admin/users"><i
+                            class="fa-solid fa-atom"></i> Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="/admin/posts"><i
+                            class="fa-solid fa-circle-plus"></i> Publicaciones</a>
+                </li>
+
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-success" type="submit" (click)="cerrarSesion()"> Cerrar Sesion</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <div class="container">
+        <div class="container col-md-4 text-center ">
+            <h1>Carga y Lista de Usuarios</h1>
+        </div>
+        <br><br>
+        <div >
+            <form role="form">
+                <div class="form-group col-md-4">
+                    <label for="text">Carga Masiva</label>
+                    <input type="file" enctype="multipart/form-data" accept=".JSON,.json" (change)="upload($event)">
+                </div>
+            </form>
+            <div class="text-right" style="text-align:right" >
+                <button type="button" class="btn btn-outline-danger" (click)="generarReporte()">Generar PDF</button>
+            </div>
+        </div>
+        <br>
+        <div class="table">
+            <table class="table table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Genero</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let users of response">
+                    <tr>
+                        <td>{{users.name}}</td>
+                        <td>{{users.gender}}</td>
+                        <td>{{users.username}}</td>
+                        <td>{{users.email}}</td>
+                        <td>
+
+                            <button class="btn btn-info" (click)="verPostDeUsuario(users.username)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            &nbsp; &nbsp; &nbsp;
+                            <button class="btn btn-warning" (click)="botonEditarUsuario(users.username)">
+                                <i class="fas fa-user-edit"> </i>
+                            </button>
+                            &nbsp; &nbsp; &nbsp;
+                            <button class="btn btn-danger" (click)="botonEliminarUsuario(users.username)">
+                                <i class="fas fa-user-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</body>

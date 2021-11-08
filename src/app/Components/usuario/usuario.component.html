@@ -1,0 +1,86 @@
+<script src="https://kit.fontawesome.com/9396e1c35d.js" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <div class="container-fluid">
+      <a class="navbar-brand">Ublog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+               <a class="nav-link active" aria-current="page" routerLink="/usuario"><i
+                     class="fas fa-home"></i>Inicio</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" aria-current="page" routerLink="/configuracion"><i class="fa-solid fa-atom"></i> Configuracion</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" aria-current="page" routerLink="/nuevo-post"><i class="fa-solid fa-circle-plus"></i>Nuevo Post</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" aria-current="page" routerLink="/misPost"><i
+                       class="fa-solid fa-circle-plus"></i>Mis publicaciones</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" aria-current="page" routerLink="/ranking"><i
+                       class="fa-solid fa-circle-plus"></i>ranking</a>
+           </li>
+         </ul>
+         <form class="d-flex">
+            <button class="btn btn-outline-success" type="submit" (click)="cerrarSesion()">Cerrar Sesion</button>
+         </form>
+      </div>
+   </div>
+</nav>
+
+<body>
+   <div class="container">
+      <h1>Bienvenido {{ username }}</h1>
+      <div class="row">
+         <div class="col-md-4" *ngFor="let publicacion of response">
+            <div class="card text-center ">
+
+               <div class="card-header bg-dark  text-white d-flex justify-content-between aling-items-center">
+                  {{publicacion.category}}
+               </div>
+                  <img src="{{publicacion.url}}" class="card-img-top">
+               <div class="card-body">
+                  <p>Publicado por: {{publicacion.owner}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fecha:
+                     {{publicacion.date}}</p>
+                  <p>Likes: &nbsp;&nbsp;&nbsp; {{publicacion.like}}</p>
+                  <button class="btn btn-primary" data-bs-toggle="buttons" (click)="botonLike(publicacion.id)">
+                     <i class="fas fa-heart"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-md-4" *ngFor="let publicacion2 of response2">
+            <div class="card text-center ">
+
+               <div class="card-header bg-dark  text-white d-flex justify-content-between aling-items-center">
+                  {{publicacion2.category}}
+               </div>
+               <div class="embed-responsive embed-responsive-16by9">
+                  <iframe   [src]="publicacion2.url | sanitizador" >
+                  </iframe>
+                  
+               </div>
+               <div class="card-body">
+                  <p>Publicado por: {{publicacion2.owner}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fecha:
+                     {{publicacion2.date}}</p>
+                  <p>Likes: &nbsp;&nbsp;&nbsp; {{publicacion2.like}}</p>
+                  <button class="btn btn-primary" (click)="botonLike(publicacion2.id)" >
+                     <i class="fas fa-heart"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <br><br>
+   </div>
+</body>
